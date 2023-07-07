@@ -1,0 +1,267 @@
+body {
+  font: 400 1em/1.5 "Neuton";
+  background: #090d00;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+#cofee-mug {
+  width: 290px;
+  height: 200px;
+  background-color: #d29daa;
+  position: absolute;
+  top: 211px;
+  display: flex;
+  justify-content: center;
+  border-radius: 3px 11px 94px 100px / 25px 1px 165px 170px;
+}
+#coffee {
+  width: 210px;
+  height: 70px;
+  position: absolute;
+  bottom: 18px;
+  background-color: #850d0d;
+  animation-name: fillCup;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  border-radius: 3px 11px 94px 100px / 25px 1px 165px 170px;
+}
+
+#ear {
+  width: 100px;
+  height: 115px;
+  border-radius: 50%;
+  background-color: #d29daa;
+  position: absolute;
+  left: 266px;
+  top: 29px;
+}
+#inner-ear {
+  position: absolute;
+  width: 67px;
+  height: 77px;
+  border-radius: 50%;
+  top: 20px;
+  left: 17px;
+  background-color: #448085;
+}
+#steam {
+  background-color: #d3d3d3;
+  width: 25px;
+  height: 25px;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  border-radius: 50%;
+  position: absolute;
+  top: -25px;
+  left: 131px;
+  visibility: hidden;
+  animation: steamfill;
+  animation-duration: 4s;
+  animation-delay: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+#steam2 {
+  background-color: #d3d3d3;
+  width: 20px;
+  height: 20px;
+  filter: blur(12px);
+  -webkit-filter: blur(12px);
+  border-radius: 50%;
+  position: absolute;
+  top: -19px;
+  left: 141px;
+  visibility: hidden;
+  animation: steamfill2;
+  animation-duration: 4s;
+  animation-delay: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fillCup {
+  from {
+    height: 70px;
+  }
+  to {
+    height: 160px;
+  }
+}
+@keyframes steamfill {
+  0% {
+    visibility: hidden;
+  }
+
+  80% {
+    visibility: visible;
+    top: -140px;
+    background-color: #448085;
+    transform: translate(-20px);
+  }
+
+  95% {
+    visibility: hidden;
+    background-color: #448085;
+  }
+
+  100% {
+    visibility: hidden;
+  }
+}
+@keyframes steamfill2 {
+  0% {
+    visibility: hidden;
+  }
+
+  80% {
+    visibility: visible;
+    top: -100px;
+    background-color: #448085;
+    transform: translate(40px);
+  }
+
+  95% {
+    visibility: hidden;
+    background-color: #448085;
+  }
+
+  100% {
+    visibility: hidden;
+  }
+}
+
+p {
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  display: inline-block;
+  border: 4px double rgba(255, 255, 255, 0.25);
+  border-width: 4px 0;
+  padding: 1.5em 0em;
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  width: 40em;
+  margin: 0 0 0 -20em;
+}
+p span {
+  font: 700 4em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: 0.25em 0 0.125em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+  /* Clip Background Image */
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Animate Background Image */
+  -webkit-text-fill-color: transparent;
+  animation-name: aitfs 80s linear infinite;
+  /* Activate hardware acceleration for smoother animations */
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+
+/* Animate Background Image */
+@keyframes aitfs {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.form {
+  position: absolute;
+  top: 430px;
+}
+
+.form input {
+  height: 45px;
+  width: 400px;
+  padding: 0;
+  margin-top: 20px;
+  font: 400 3rem "Roboto Slab";
+  color: white;
+  letter-spacing: 0.025em;
+  border: none;
+  background: transparent;
+  text-align: center;
+  outline: none;
+  caret-color: transparent;
+  border-bottom: solid thin rgba(238, 238, 238, 0.164);
+}
+
+.custom-stripe-button,
+.form button {
+  border: 1px solid #636363a1;
+  width: 150px;
+  height: 35px;
+  font-size: 25px;
+  color: rgba(0, 255, 255, 0.33);
+  text-align: center;
+  border-radius: 1px 10px;
+  background: transparent;
+  outline: none;
+  margin-top: 40px;
+  margin-left: 45px;
+}
+
+.custom-stripe-button:hover,
+.form button:hover {
+  cursor: pointer;
+  border: 2px solid #fff;
+  border-radius: 1px 10px;
+}
+
+#error {
+  position: relative;
+  top: 600px;
+  text-shadow: #ffffff55;
+  font-size: 20px;
+  color: #850d0d;
+}
+
+.btn {
+  position: relative;
+  margin-left: -20px;
+}
+
+.modal_wrapper {
+  overflow: auto;
+  /* max-height: 2000px; */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #000000a3;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_box {
+  position: relative;
+  width: 500px;
+  background: #646161b5;
+  padding: 30px;
+}
+
+.btn6 {
+  background: transparent;
+  border-radius: 30px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}

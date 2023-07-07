@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('./payment/node_modules/@types/express')
 const app = express()
 const Razorpay = require('razorpay');
 const crypto = require('crypto')
@@ -9,7 +9,7 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-require('dotenv').config()
+require('./payment/node_modules/dotenv/lib/main').config()
 const port = 5001 || process.env.PORT
 
 //============================================================================================================
