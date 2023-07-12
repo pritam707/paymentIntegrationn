@@ -1,4 +1,4 @@
-const express = require('./payment/node_modules/@types/express')
+const express = require('express')
 const app = express()
 const Razorpay = require('razorpay');
 const crypto = require('crypto')
@@ -9,7 +9,7 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-require('./payment/node_modules/dotenv/lib/main').config()
+require('dotenv').config()
 const port = 5001 || process.env.PORT
 
 //============================================================================================================
@@ -138,8 +138,8 @@ app.post('/stripe-checkout-session', async (req, res) => {
                 },
             ],
             mode: 'payment',
-            success_url: 'http://localhost:3000/success',
-            cancel_url: 'http://localhost:3000/unsuccess',
+            success_url: 'http://35.188.5.60:3000/success',
+            cancel_url: 'http://35.188.5.60:3000/unsuccess',
         });
 
         status = 'success'

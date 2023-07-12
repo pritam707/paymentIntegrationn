@@ -15,12 +15,12 @@ function App() {
   const [error, setError] = useState('')
   const navigate = useNavigate();
   const [paypalModel, setPaypalMOdel] = useState(false);
-  const publishableKey = 'Stripe_publishableKey' //please provide publishable key
+  const publishableKey = 'pk_test_51LryyESCNJpJNoqU5anxRf19SpcaI7Iw8S1j7CZJC31mdmvH0FE5SDZJTapaJPznOIE4NTtDE9Pg1CAgFya3OEy500AF9nxGGf' //please provide publishable key
 
 
   const callback = (res) => {
 
-    axios.post('http://localhost:5001/payment/callback', { razorpay_order_id: res.razorpay_order_id, razorpay_payment_id: res.razorpay_payment_id, razorpay_signature: res.razorpay_signature })
+    axios.post('http://35.188.5.60:5001/payment/callback', { razorpay_order_id: res.razorpay_order_id, razorpay_payment_id: res.razorpay_payment_id, razorpay_signature: res.razorpay_signature })
       .then((result) => {
 
         if (result.data.status === true) {
@@ -42,12 +42,12 @@ function App() {
       setError('Please enter less than or equal to 500000')
     }
     else {
-      axios.post('http://localhost:5001/payment', { amount })
+      axios.post('http://35.188.5.60:5001/payment', { amount })
         .then(async (result) => {
 
 
           const options = {
-            "key": "razorpay_key", // Enter the Key ID generated from the Dashboard
+            "key": "rzp_test_I6qot97E2x8jg8", // Enter the Key ID generated from the Dashboard
             "amount": result.data.order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
             "currency": "INR",
             "name": "coffee", //your business name
@@ -113,7 +113,7 @@ function App() {
   const payNow = async token => {
     try {
       const response = await axios({
-        url: 'http://localhost:5001/stripe-checkout-session',
+        url: 'http://35.188.5.60:5001/stripe-checkout-session',
         method: 'post',
         data: {
           amount: amount * 100,
